@@ -1,0 +1,8 @@
+.find() gives u all posts in the schema
+.findById() gives something based on id
+.save() saves the file in the database
+.select() gives what fields u want to select, works great after .find()
+.exec() executes a method based on some other method example: use .exec() after .findById().exec()
+.remove() removes a document from the database
+.populate() populates a property/object in the database, example: madeBy: {id, name}
+.sort() sorts the document based on the given parametar example .sort("_created") will sort based on the date created

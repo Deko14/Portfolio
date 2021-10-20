@@ -1,0 +1,1 @@
+function scrollToTop(){window.scrollTo({top:0,behavior:"smooth"})}window.addEventListener("scroll",(o=>{const s=document.getElementById("jsScroll");window.scrollY>200?s.classList.add("visible"):s.classList.remove("visible")}));

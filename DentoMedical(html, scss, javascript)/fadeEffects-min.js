@@ -1,0 +1,1 @@
+const faders=document.querySelectorAll(".fade-in"),appearOptions={threshold:1,rootMargin:"0px 0px 250px 0px"},appearOnScroll=new IntersectionObserver((function(e,r){e.forEach((e=>{e.isIntersecting&&(e.target.classList.add("appear"),r.unobserve(e.target))}))}),appearOptions);faders.forEach((e=>{appearOnScroll.observe(e)}));

@@ -1,0 +1,1761 @@
+// COLORS
+$white: #ffffff;
+$electric-blue: #86f4fe;
+$prussian-blue: #0b2c52;
+$usafa-blue: #185795;
+$black: #000000;
+
+// DISTANCE
+$m30: 30px;
+$m80: 80px;
+
+// DESIGN
+$bradius-20: 20px;
+$bradius-40: 40px;
+$shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+
+// TRANSITION
+$transition: all 0.3s ease-in-out;
+
+@mixin flex-row {
+  display: flex;
+  flex-direction: row;
+}
+
+@mixin flex-column {
+  display: flex;
+  flex-direction: column;
+}
+
+@mixin left-right-80 {
+  margin-left: $m80;
+  margin-right: $m80;
+}
+
+@mixin left-right-10 {
+  margin-left: 10px;
+  margin-right: 10px;
+}
+
+@mixin left-right-20 {
+  margin-left: 20px;
+  margin-right: 20px;
+}
+
+@mixin left-right-40 {
+  margin-left: 40px;
+  margin-right: 40px;
+}
+
+@mixin left-right-160 {
+  margin-left: 160px;
+  margin-right: 160px;
+}
+
+@mixin left-right-560 {
+  margin-left: 560px;
+  margin-right: 560px;
+}
+
+@mixin left-right-half {
+  margin-left: 25%;
+  margin-right: 25%;
+}
+
+* {
+  scroll-behavior: smooth;
+}
+
+body {
+  box-sizing: border-box;
+  font-family: "Nunito", sans-serif;
+  font-size: 16px;
+  margin: 0;
+  padding: 0;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  margin-top: 0;
+  margin-bottom: 0;
+}
+
+h2 {
+  margin-top: $m30;
+  color: $usafa-blue;
+  font-size: 4rem;
+  font-style: normal;
+  font-weight: 600;
+  line-height: 68px;
+}
+
+p {
+  color: $prussian-blue;
+  font-style: normal;
+  font-weight: normal;
+  line-height: 28px;
+  letter-spacing: 0.02em;
+}
+
+a {
+  text-decoration: none;
+}
+
+a:visited {
+  text-decoration: none;
+}
+
+// HERO SECTION
+.hero {
+  // min-width: 100vh;
+  background: linear-gradient(0deg, #0a2748 0%, #17528d 100%),
+    linear-gradient(0deg, rgba(0, 0, 0, 0.04), rgba(0, 0, 0, 0.04));
+  color: $white;
+  @include flex-column;
+
+  nav {
+    @include left-right-80;
+    font-weight: 600;
+    animation: transitionIn 0.75s;
+
+    .container {
+      position: relative;
+      max-width: 100%;
+      @include flex-row;
+      justify-content: space-between;
+      align-items: center;
+
+      ul.menu {
+        @include flex-row;
+        align-items: center;
+        list-style-type: none;
+        padding-left: 0px;
+
+        li {
+          margin-right: 35px;
+          color: $white;
+        }
+
+        li a:link {
+          text-decoration: none;
+          color: $white;
+        }
+
+        li a:visited {
+          color: $white;
+        }
+
+        li a:active {
+          color: $white;
+        }
+
+        li a:hover {
+          color: $electric-blue;
+          -webkit-transition: all 0.3s ease;
+          transition: $transition;
+        }
+
+        li .nav-button {
+          border: 2px solid $white;
+          border-radius: $bradius-40;
+          padding: 15px 30px 15px 30px;
+        }
+
+        li .nav-button:hover {
+          border: 2px solid $electric-blue;
+          color: $electric-blue;
+          -webkit-transition: all 0.3s ease;
+          transition: $transition;
+        }
+
+        li.languages-container {
+          @include flex-column;
+          margin-right: 0px;
+          a:hover {
+            border-bottom: 0;
+            border-radius: 0;
+          }
+
+          .flag {
+            width: 20px;
+            height: 20px;
+          }
+        }
+      }
+
+      .hamburger-menu {
+        display: none;
+        position: absolute;
+        width: 100%;
+        height: 100%;
+
+        .menu {
+          position: relative;
+
+          .hamburger {
+            float: right;
+            height: 45px;
+            margin-top: 20px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            justify-items: center;
+            z-index: 120;
+            cursor: pointer;
+          }
+
+          .hamburger div {
+            background-color: $white;
+            border-radius: $bradius-40;
+            position: relative;
+            width: 40px;
+            height: 5px;
+            margin-top: 7px;
+            -webkit-transition: all 0.2s ease-in-out;
+            transition: all 0.2s ease-in-out;
+          }
+
+          #toggle {
+            display: none;
+          }
+
+          #toggle:checked + .hamburger .top {
+            -webkit-transform: rotate(-45deg);
+            transform: rotate(-45deg);
+            margin-top: 22.5px;
+          }
+
+          #toggle:checked + .hamburger .meat {
+            -webkit-transform: rotate(45deg);
+            transform: rotate(45deg);
+            margin-top: -5px;
+          }
+
+          #toggle:checked + .hamburger .bottom {
+            -webkit-transform: scale(0);
+            transform: scale(0);
+          }
+
+          #toggle:checked ~ .menu-list {
+            height: 380px;
+            width: 100%;
+            margin-top: 90px;
+          }
+
+          .menu-list {
+            position: absolute;
+            background-color: $white;
+            width: 100%;
+            margin: 0;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-around;
+            padding: 0;
+            clear: both;
+            text-align: center;
+            height: 0px;
+            overflow: hidden;
+            transition: height 0.4s ease;
+            z-index: 120;
+            -webkit-transition: all 0.3s ease;
+            transition: all 0.3s ease;
+            align-items: center;
+            list-style-type: none;
+            padding-left: 0px;
+
+            li {
+              color: $usafa-blue;
+            }
+
+            li a {
+              transition: border-bottom 0.3s ease;
+            }
+
+            li a:visited {
+              color: $usafa-blue;
+            }
+
+            li a:link {
+              color: $usafa-blue;
+            }
+
+            li .nav-button {
+              border: 2px solid $usafa-blue;
+              border-radius: $bradius-40;
+              padding: 15px 30px 15px 30px;
+            }
+
+            li .nav-button:hover {
+              border: 2px solid $electric-blue;
+              color: $electric-blue;
+              -webkit-transition: all 0.3s ease;
+              transition: $transition;
+            }
+
+            li.languages-container {
+              a:hover {
+                border-bottom: 0;
+                border-radius: 0;
+              }
+              .flag {
+                padding: 4px;
+                width: 24px;
+                height: 24px;
+              }
+            }
+          }
+
+          .menu-list li a:first-child {
+            margin-top: $m30;
+          }
+
+          .menu-list li a:last-child {
+            margin-bottom: $m30;
+          }
+
+          .menu-list li a {
+            width: 100%;
+            margin: 0;
+            padding: 10px 0;
+          }
+
+          .menu-list li a:hover {
+            color: $electric-blue;
+            -webkit-transition: all 0.3s ease;
+            transition: $transition;
+          }
+        }
+      }
+    }
+  }
+
+  .main {
+    @include left-right-80;
+    @include flex-row;
+
+    .block {
+      padding-top: 14vh;
+      padding-bottom: 14vh;
+      width: 60%;
+      animation: heroBlock1 1s;
+
+      .flexbox {
+        @include flex-column;
+        justify-content: center;
+        align-items: left;
+
+        i {
+          margin-left: 20px;
+          font-weight: 300;
+          font-size: 1.2rem;
+        }
+
+        h1 {
+          font-size: 7rem;
+          font-family: "Marmelad", sans-serif;
+          font-style: normal;
+          font-weight: normal;
+          text-align: left;
+          text-shadow: -8px 8px 4px rgba(0, 0, 0, 0.25);
+          margin-top: -30px;
+
+          span {
+            display: inline;
+          }
+          span.bigletter {
+            font-size: 11rem;
+            letter-spacing: -0.02em;
+          }
+        }
+
+        h1:nth-child(3) {
+          align-self: flex-end;
+          margin-top: -60px;
+        }
+
+        .button-container {
+          color: $prussian-blue;
+          align-self: center;
+          margin-top: $m30;
+          background-color: white;
+          border: 2px solid $white;
+          border-radius: $bradius-40;
+          padding: 15px 30px 15px 30px;
+          box-shadow: $shadow;
+          transition: transform 0.25s linear;
+        }
+
+        .button-container:hover {
+          color: $white;
+          background-color: transparent;
+          box-shadow: 0px 2px 42px 8px $electric-blue;
+          transition: all 0.3s ease;
+        }
+
+        // .button-container:active {
+        //   color: $white;
+        //   background-color: transparent;
+        //   box-shadow: 0px 2px 42px 8px $electric-blue;
+        //   transition: all 0.3s ease;
+        // }
+
+        div.social-media-icons {
+          align-self: center;
+          color: $electric-blue;
+          margin-top: $m30;
+
+          a {
+            color: $electric-blue;
+          }
+
+          a:visited {
+            color: $electric-blue;
+          }
+
+          .scicon {
+            width: 40px;
+            height: 40px;
+          }
+        }
+      }
+    }
+
+    .block2 {
+      padding-bottom: 14vh;
+      padding-top: 14vh;
+      width: 40%;
+      text-align: center;
+      animation: heroBlock2 2s;
+
+      img {
+        max-width: 100%;
+      }
+    }
+  }
+}
+
+// ABOUT SECTION
+.about {
+  background-image: url("images/aboutus-min.png");
+  background-repeat: no-repeat;
+  background-size: cover;
+
+  .content {
+    @include left-right-80;
+    @include flex-column;
+
+    p {
+      max-width: 50%;
+      margin-bottom: $m30;
+    }
+  }
+}
+
+// THE TEAM SECTION
+.theteam {
+  @include flex-row;
+  @include left-right-80;
+
+  .imgcontainer {
+    margin-top: $m30;
+    width: 50%;
+    img {
+      width: 100%;
+    }
+  }
+
+  .contentcontainer {
+    width: 50%;
+    margin-left: 80px;
+    align-self: center;
+  }
+}
+
+// SERVICES SECTION
+.services {
+  @include flex-column;
+
+  h2 {
+    align-self: center;
+  }
+
+  .cards {
+    @include flex-row;
+    @include left-right-80;
+    margin-top: $m30;
+
+    .card {
+      box-shadow: $shadow;
+      border-radius: $bradius-20;
+      padding: 20px;
+      margin-left: 10px;
+      margin-right: 10px;
+      @include flex-column;
+      justify-content: space-between;
+
+      .imgcontainer {
+        padding-left: 25px;
+        padding-right: 25px;
+        padding-bottom: 15px;
+        img {
+          width: 100%;
+        }
+      }
+
+      .card-body {
+        text-align: left;
+        @include flex-column;
+
+        h5 {
+          color: $usafa-blue;
+          font-style: italic;
+          font-weight: bold;
+          font-size: 1rem;
+          line-height: 110%;
+        }
+        .card-text {
+          color: $prussian-blue;
+          font-weight: 300;
+          font-size: 0.8rem;
+          line-height: 140%;
+        }
+
+        .button-container {
+          border: 2px solid $electric-blue;
+          border-radius: $bradius-40;
+          padding: 10px 20px 10px 20px;
+          align-self: center;
+          text-align: center;
+          text-decoration: none;
+
+          p {
+            margin: 0px;
+            color: $prussian-blue;
+            font-style: normal;
+            font-weight: normal;
+            font-size: 16px;
+            line-height: 18px;
+            text-decoration: none;
+          }
+        }
+      }
+    }
+
+    .card > * {
+      flex-basis: 100%;
+    }
+
+    .card:nth-child(1) {
+      margin-left: 0;
+    }
+
+    .card:nth-child(6) {
+      margin-right: 0;
+    }
+  }
+}
+
+// GALLERY SECTION
+
+.gallery {
+  @include flex-column;
+
+  h2 {
+    align-self: center;
+    margin-top: $m30;
+  }
+  h4 {
+    @include left-right-80;
+    color: $prussian-blue;
+    margin-top: $m30;
+    margin-bottom: $m30;
+    font-weight: bold;
+    font-size: 1.2rem;
+    line-height: 105%;
+  }
+
+  $img-w: 3000px;
+  $img-h: 612px;
+  $shrink: 2;
+  $ratio: 1 / $shrink;
+  $speed: 40s;
+
+  .slider {
+    width: 100%;
+    top: calc(50% - #{$img-h * $ratio / 2});
+    overflow: hidden;
+    margin-top: $m30;
+    .slider-row {
+      width: 100%;
+      height: $img-h * $ratio;
+      background-image: url(images/office/infinite-office-min.png);
+      background-size: $img-w * $ratio $img-h * $ratio;
+      animation: slide $speed linear infinite;
+    }
+    .slider-row:active {
+      animation-play-state: paused;
+    }
+    .slider-row-reverse {
+      width: 100%;
+      height: $img-h * $ratio;
+      background-image: url(images/beforeafter/infinite-before-after-min.png);
+      background-size: $img-w * $ratio $img-h * $ratio;
+      animation: slidereverse $speed linear infinite;
+    }
+    .slider-row-reverse:active {
+      animation-play-state: paused;
+    }
+  }
+
+  @keyframes slide {
+    from {
+      background-position-x: 0;
+    }
+    to {
+      background-position-x: -$img-w * $ratio;
+    }
+  }
+
+  @keyframes slidereverse {
+    from {
+      background-position-x: -$img-w * $ratio;
+    }
+    to {
+      background-position-x: 0;
+    }
+  }
+}
+
+// CONTACT SECTION
+
+.contact {
+  @include flex-column;
+
+  h2 {
+    margin-top: $m30;
+    align-self: center;
+  }
+
+  .contact-cards {
+    @include flex-row;
+    @include left-right-80;
+    margin-top: $m30;
+    justify-content: center;
+
+    .contact-card {
+      @include flex-column;
+      width: 50%;
+      padding: 40px;
+      border-radius: $bradius-20;
+      box-shadow: $shadow;
+
+      h4 {
+        align-self: center;
+        color: $prussian-blue;
+        font-weight: bold;
+        font-size: 1.2rem;
+        line-height: 105%;
+      }
+
+      iframe {
+        border: 0px;
+        border-radius: 20px;
+        margin-top: $m30;
+        height: 40vh;
+      }
+
+      .social-media-icons {
+        margin-top: 15px;
+        align-self: center;
+
+        a:visited {
+          color: $electric-blue;
+        }
+
+        .iconify {
+          width: 40px;
+          height: 40px;
+          color: $electric-blue;
+        }
+      }
+
+      .card-body {
+        margin-top: 15px;
+
+        .text {
+          margin-top: 5px;
+
+          .iconify {
+            width: 30px;
+            height: 30px;
+            color: black;
+          }
+          p {
+            a {
+              color: #0b2c52;
+            }
+            display: inline;
+            font-size: 0.8rem;
+          }
+        }
+      }
+    }
+    .contact-card:nth-child(1) {
+      margin-right: 50px;
+    }
+    .contact-card:nth-child(2) {
+      margin-left: 50px;
+    }
+  }
+}
+
+// APPOINTMENT SECTION
+.appointment {
+  @include flex-column;
+
+  .info {
+    @include left-right-80;
+  }
+
+  h2 {
+    align-self: center;
+  }
+
+  h4 {
+    margin-top: $m30;
+    text-align: center;
+    align-self: center;
+    font-size: 1.2rem;
+  }
+
+  p {
+    b {
+      color: red;
+    }
+    align-self: center;
+    margin-top: 15px;
+    text-align: center;
+  }
+
+  .container {
+    @include left-right-80;
+    margin-top: $m30;
+    align-self: center;
+    width: 60%;
+
+    .appointment_form {
+      @include flex-column;
+      padding: 30px;
+      color: $white;
+      background: linear-gradient(0deg, #0a2748 0%, #17528d 100%),
+        linear-gradient(0deg, rgba(0, 0, 0, 0.04), rgba(0, 0, 0, 0.04));
+      border-radius: $bradius-20;
+      box-shadow: $shadow;
+
+      label {
+        margin-bottom: 2px;
+      }
+
+      textarea {
+        resize: vertical;
+        height: 180px;
+      }
+
+      input,
+      textarea {
+        margin-top: 6px;
+        margin-bottom: 16px;
+        padding: 8px;
+        border: 1px solid $prussian-blue;
+        border-radius: 4px;
+      }
+
+      .button-container {
+        margin-top: 15px;
+        font-size: 16px;
+        color: $prussian-blue;
+        align-self: center;
+        background-color: white;
+        border: 2px solid $white;
+        border-radius: $bradius-40;
+        padding: 15px 30px 15px 30px;
+        box-shadow: $shadow;
+        transition: transform 0.25s linear;
+        cursor: pointer;
+      }
+
+      .button-container:hover {
+        color: $white;
+        background-color: transparent;
+        box-shadow: 0px 2px 42px 8px $electric-blue;
+        transition: all 0.3s ease;
+      }
+    }
+  }
+}
+
+// FOOTER SECTION
+
+footer {
+  @include flex-row;
+  justify-content: space-between;
+  margin-top: 60px;
+  background-color: $prussian-blue;
+
+  p {
+    @include left-right-80;
+    color: $white;
+
+    .dekoz {
+      font-family: "Marmelad", sans-serif;
+      font-weight: bolder;
+      color: $electric-blue;
+    }
+  }
+}
+
+// SCROLL TO TOP ARROW
+
+.scroll {
+  cursor: pointer;
+  width: 70px;
+  height: 70px;
+  position: fixed;
+  bottom: 40px;
+  right: -80px;
+  border-radius: 100%;
+  background-image: radial-gradient(
+    circle farthest-corner at 10% 20%,
+    $usafa-blue 0%,
+    $prussian-blue 81.3%
+  );
+  color: #fff;
+  font-size: 44px;
+  font-weight: bold;
+  text-align: center;
+  box-shadow: 0 0 5px 0px $black;
+  transition: 300ms;
+}
+
+.scroll .iconify {
+  margin-top: 12px;
+  text-shadow: 0 0 2px #fff;
+}
+.scroll:hover .iconify {
+  animation-name: rotate;
+  animation-duration: 300ms;
+  animation-iteration-count: infinite;
+  animation-direction: alternate;
+}
+
+.visible {
+  right: 30px;
+  transition: all 400ms;
+  transform: rotate(360deg);
+}
+
+@keyframes rotate {
+  from {
+    margin-top: 15px;
+  }
+  to {
+    margin-top: 5px;
+  }
+}
+
+// FADE EFFECT CLASSES
+
+.fade-in {
+  opacity: 0;
+  transition: opacity 250ms ease-in;
+}
+
+.fade-in.appear {
+  opacity: 1;
+}
+
+// HERO ANIMATIONS
+
+@keyframes heroBlock1 {
+  from {
+    opacity: 0;
+    transform: translateX(-3in);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+@keyframes heroBlock2 {
+  from {
+    opacity: 0;
+    transform: rotateY(-180deg);
+  }
+  to {
+    opacity: 1;
+    transform: rotateX(0);
+  }
+}
+
+// MEDIA QUIERIES
+
+/* Extra small devices (phones, 600px and down) */
+@media only screen and (max-width: 479px) {
+  .hero nav {
+    margin-left: 0px;
+    margin-right: 0px;
+  }
+
+  .hero nav .container .brand {
+    align-self: flex-start;
+  }
+
+  .hero nav .container ul.menu {
+    display: none;
+  }
+
+  .hero nav .container .hamburger-menu {
+    display: block;
+  }
+
+  .hero nav .container .hamburger-menu .menu .hamburger {
+    margin-right: 18px;
+  }
+
+  .hero .main {
+    @include left-right-10;
+    flex-direction: column;
+  }
+
+  .hero .main .block {
+    width: 100%;
+    padding-bottom: 0;
+  }
+
+  .hero .main .block2 {
+    width: 100%;
+  }
+
+  .hero-button {
+    font-size: 1.2rem;
+  }
+
+  .hero .main .block .flexbox {
+    @include left-right-10;
+  }
+
+  .hero .main .block .flexbox i {
+    @include left-right-10;
+    font-size: 1rem;
+  }
+
+  .hero .main .block .flexbox h1 {
+    font-size: 4rem;
+    margin-top: -12px;
+  }
+
+  .hero .main .block .flexbox h1:nth-child(3) {
+    font-size: 4rem;
+    margin-top: -40px;
+  }
+
+  .hero .main .block .flexbox h1 span.bigletter {
+    font-size: 8rem;
+  }
+
+  .about .content {
+    @include left-right-10;
+  }
+
+  .about .content p {
+    max-width: 100%;
+  }
+
+  .services .cards {
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+  }
+
+  .services .cards .card {
+    flex-direction: column;
+    width: 50%;
+  }
+
+  .contact {
+    align-items: center;
+  }
+
+  .contact .contact-cards {
+    flex-direction: column;
+    width: 80%;
+  }
+
+  .theteam {
+    @include left-right-10;
+    flex-direction: column;
+  }
+
+  .theteam .imgcontainer {
+    width: 100%;
+  }
+
+  .theteam .contentcontainer {
+    width: 100%;
+    @include left-right-10;
+  }
+
+  .services {
+    @include left-right-10;
+    align-items: center;
+    text-align: center;
+  }
+
+  .services .cards {
+    @include left-right-10;
+  }
+
+  .contact .contact-cards {
+    @include left-right-10;
+    align-items: center;
+  }
+
+  .services .cards .card {
+    width: 40%;
+    margin-top: 15px;
+    @include left-right-10;
+  }
+
+  .services .cards .card:nth-child(1) {
+    margin-top: 0px;
+    @include left-right-10;
+  }
+
+  .services .cards .card:nth-child(6) {
+    @include left-right-10;
+  }
+
+  .gallery h4 {
+    @include left-right-10;
+  }
+
+  .contact .contact-cards .contact-card {
+    width: 80%;
+  }
+
+  .contact .contact-cards .contact-card:nth-child(1) {
+    @include left-right-10;
+  }
+
+  .contact .contact-cards .contact-card:nth-child(2) {
+    @include left-right-10;
+    margin-top: 30px;
+  }
+
+  .appointment .info {
+    @include left-right-10;
+  }
+
+  .appointment .container {
+    @include left-right-10;
+    width: 90%;
+  }
+
+  footer {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  footer p {
+    text-align: center;
+    @include left-right-10;
+  }
+
+  .created {
+    margin-top: 0px;
+  }
+}
+/* Small devices (portrait tablets and large phones, 600px and up) */
+@media only screen and (min-width: 479px) and (max-width: 767px) {
+  .hero nav {
+    margin-left: 0px;
+    margin-right: 0px;
+  }
+
+  .hero nav .container .brand {
+    align-self: flex-start;
+  }
+
+  .hero nav .container ul.menu {
+    display: none;
+  }
+
+  .hero nav .container .hamburger-menu {
+    display: block;
+  }
+
+  .hero nav .container .hamburger-menu .menu .hamburger {
+    margin-right: 18px;
+  }
+
+  .hero .main {
+    @include left-right-20;
+    flex-direction: column;
+  }
+
+  .hero .main .block {
+    width: 100%;
+    padding-bottom: 0;
+  }
+
+  .hero .main .block2 {
+    width: 100%;
+  }
+
+  .hero-button {
+    font-size: 1.2rem;
+  }
+
+  .hero .main .block .flexbox {
+    margin-right: 10px;
+  }
+
+  .hero .main .block .flexbox i {
+    @include left-right-20;
+    margin-left: 20px;
+  }
+
+  .hero .main .block .flexbox h1 {
+    font-size: 6rem;
+  }
+
+  .hero .main .block .flexbox h1:nth-child(3) {
+    font-size: 6rem;
+  }
+
+  .hero .main .block .flexbox h1 span.bigletter {
+    font-size: 12rem;
+  }
+
+  .about .content {
+    @include left-right-20;
+  }
+
+  .about .content p {
+    max-width: 100%;
+  }
+
+  .services .cards {
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+  }
+
+  .services .cards .card {
+    flex-direction: column;
+    width: 50%;
+  }
+
+  .contact {
+    align-items: center;
+  }
+
+  .contact .contact-cards {
+    flex-direction: column;
+    width: 80%;
+  }
+
+  .theteam {
+    @include left-right-20;
+    flex-direction: column;
+  }
+
+  .theteam .imgcontainer {
+    width: 100%;
+  }
+
+  .theteam .contentcontainer {
+    width: 100%;
+    // text-align: center;
+    @include left-right-20;
+  }
+
+  .services {
+    @include left-right-20;
+    align-items: center;
+    text-align: center;
+  }
+
+  .services .cards {
+    @include left-right-20;
+  }
+
+  .contact .contact-cards {
+    @include left-right-20;
+    align-items: center;
+  }
+
+  .services .cards .card {
+    width: 40%;
+    margin-top: 15px;
+    @include left-right-20;
+  }
+
+  .services .cards .card:nth-child(1) {
+    margin-top: 0px;
+    @include left-right-20;
+  }
+
+  .services .cards .card:nth-child(6) {
+    @include left-right-20;
+  }
+
+  .gallery h4 {
+    @include left-right-20;
+  }
+
+  .contact .contact-cards .contact-card {
+    width: 80%;
+  }
+
+  .contact .contact-cards .contact-card:nth-child(1) {
+    @include left-right-20;
+  }
+
+  .contact .contact-cards .contact-card:nth-child(2) {
+    @include left-right-20;
+    margin-top: 30px;
+  }
+
+  .appointment .info {
+    @include left-right-20;
+  }
+
+  .appointment .container {
+    @include left-right-20;
+    width: 80%;
+  }
+
+  footer {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  footer p {
+    text-align: center;
+    @include left-right-10;
+  }
+
+  .created {
+    margin-top: 0px;
+  }
+}
+/* Medium devices (landscape tablets, 768px and up) */
+@media only screen and (min-width: 767px) and (max-width: 993px) {
+  .hero nav {
+    margin-left: 0px;
+    margin-right: 0px;
+  }
+
+  .hero nav .container .brand {
+    align-self: flex-start;
+  }
+
+  .hero nav .container ul.menu {
+    display: none;
+  }
+
+  .hero nav .container .hamburger-menu {
+    display: block;
+  }
+
+  .hero nav .container .hamburger-menu .menu .hamburger {
+    margin-right: 18px;
+  }
+
+  .hero .main {
+    @include left-right-20;
+    flex-direction: column;
+  }
+
+  .hero .main .block {
+    width: 100%;
+    padding-bottom: 0;
+  }
+
+  .hero .main .block2 {
+    width: 100%;
+  }
+
+  .hero-button {
+    font-size: 1.2rem;
+  }
+
+  .hero .main .block .flexbox {
+    margin-right: 10px;
+  }
+
+  .hero .main .block .flexbox i {
+    @include left-right-20;
+    margin-left: 30px;
+  }
+
+  .hero .main .block .flexbox h1 {
+    font-size: 8rem;
+    margin-top: -40px;
+  }
+
+  .hero .main .block .flexbox h1:nth-child(3) {
+    font-size: 8rem;
+  }
+
+  .hero .main .block .flexbox h1 span.bigletter {
+    font-size: 14rem;
+  }
+
+  .about .content {
+    @include left-right-20;
+  }
+
+  .about .content h2 {
+    text-align: left;
+  }
+
+  .about .content p {
+    max-width: 75%;
+  }
+
+  .services .cards {
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+  }
+
+  .services .cards .card {
+    flex-direction: column;
+    width: 50%;
+  }
+
+  .contact {
+    align-items: center;
+  }
+
+  .contact .contact-cards {
+    flex-direction: column;
+    width: 80%;
+  }
+
+  .theteam {
+    @include left-right-20;
+    flex-direction: column;
+  }
+
+  .theteam h2 {
+    text-align: center;
+  }
+
+  .theteam .imgcontainer {
+    width: 100%;
+  }
+
+  .theteam .contentcontainer {
+    width: 100%;
+    text-align: center;
+    @include left-right-20;
+  }
+
+  .services {
+    @include left-right-20;
+    align-items: center;
+    text-align: center;
+  }
+
+  .services .cards {
+    @include left-right-20;
+  }
+
+  .contact .contact-cards {
+    @include left-right-20;
+    align-items: center;
+  }
+
+  .services .cards .card {
+    width: 40%;
+    margin-top: 15px;
+    @include left-right-20;
+  }
+
+  .services .cards .card:nth-child(1) {
+    margin-top: 0px;
+    @include left-right-20;
+  }
+
+  .services .cards .card:nth-child(6) {
+    @include left-right-20;
+  }
+
+  .gallery h4 {
+    @include left-right-20;
+  }
+
+  .contact .contact-cards .contact-card {
+    width: 80%;
+  }
+
+  .contact .contact-cards .contact-card:nth-child(1) {
+    @include left-right-20;
+  }
+
+  .contact .contact-cards .contact-card:nth-child(2) {
+    @include left-right-20;
+    margin-top: 30px;
+  }
+
+  .appointment .info {
+    @include left-right-20;
+  }
+
+  .appointment .container {
+    @include left-right-20;
+    width: 80%;
+  }
+
+  footer {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  footer p {
+    text-align: center;
+    @include left-right-10;
+  }
+
+  .created {
+    margin-top: 0px;
+  }
+}
+/* Large devices (laptops/desktops, 992px and up) */
+@media only screen and (min-width: 993px) and (max-width: 1200px) {
+  .hero nav .container ul.menu {
+    display: flex;
+  }
+
+  .hero nav .container .hamburger-menu {
+    display: none;
+  }
+
+  .hero .main .block .flexbox i {
+    margin-left: 20px;
+  }
+
+  .hero nav {
+    @include left-right-40;
+  }
+
+  .hero .main {
+    @include left-right-40;
+  }
+
+  .about .content {
+    @include left-right-40;
+  }
+
+  .theteam {
+    @include left-right-40;
+  }
+
+  .services .cards {
+    @include left-right-40;
+  }
+
+  .gallery h4 {
+    @include left-right-40;
+  }
+
+  .contact .contact-cards {
+    @include left-right-40;
+  }
+
+  .contact .contact-cards .contact-card:nth-child(1) {
+    margin-right: 25px;
+  }
+
+  .contact .contact-cards .contact-card:nth-child(2) {
+    margin-left: 25px;
+  }
+
+  .appointment .info {
+    @include left-right-40;
+  }
+
+  .appointment .container {
+    @include left-right-40;
+  }
+
+  footer p {
+    @include left-right-40;
+  }
+}
+/* Large devices (laptops/desktops, 1200px and up) */
+@media only screen and (min-width: 1200px) and (max-width: 1440px) {
+  .hero .main .block .flexbox h1 {
+    font-size: 8rem;
+  }
+
+  .hero .main .block .flexbox h1:nth-child(3) {
+    font-size: 8rem;
+  }
+
+  .hero .main .block .flexbox h1 span.bigletter {
+    font-size: 14rem;
+  }
+
+  .hero .main .block .flexbox i {
+    margin-left: 30px;
+  }
+}
+/* Extra large devices (large laptops and desktops, 1440px and up) */
+@media only screen and (min-width: 1440px) and (max-width: 1824px) {
+  .hero .main .block .flexbox h1 {
+    font-size: 9rem;
+  }
+
+  .hero .main .block .flexbox i {
+    margin-left: 40px;
+  }
+
+  .hero .main .block .flexbox h1:nth-child(3) {
+    font-size: 9rem;
+  }
+
+  .hero .main .block .flexbox h1 span.bigletter {
+    font-size: 15rem;
+  }
+}
+/* Extra Extra Large screens (1824 and up) */
+@media only screen and (min-width: 1824px) and (max-width: 2560px) {
+  .hero nav {
+    @include left-right-160;
+  }
+
+  .hero .main {
+    @include left-right-160;
+  }
+
+  .about .content {
+    @include left-right-160;
+  }
+
+  .theteam {
+    @include left-right-160;
+  }
+
+  .services .cards {
+    @include left-right-160;
+  }
+
+  .contact .contact-cards {
+    @include left-right-160;
+  }
+
+  .appointment .info {
+    @include left-right-160;
+  }
+
+  .appointment .container {
+    @include left-right-160;
+  }
+
+  footer p {
+    @include left-right-160;
+  }
+
+  p {
+    font-size: 1.2rem;
+  }
+
+  .hero .main .block .flexbox i {
+    margin-left: 40px;
+    font-size: 1.4rem;
+  }
+
+  .hero .main .block .flexbox .button-container {
+    font-size: 1.4rem;
+  }
+
+  .services .cards .card .card-body .card-text {
+    font-size: 1rem;
+  }
+  .hero .main .block .flexbox h1 {
+    font-size: 13rem;
+  }
+
+  .hero .main .block .flexbox h1:nth-child(3) {
+    font-size: 13rem;
+  }
+
+  .hero .main .block .flexbox h1 span.bigletter {
+    font-size: 19rem;
+  }
+
+  .contact .contact-cards .contact-card .card-body .text p {
+    font-size: 1rem;
+  }
+}
+/* Ultra Large screens (2560 and up) */
+@media only screen and (min-width: 2560px) and (max-width: 3440px) {
+  .hero nav {
+    @include left-right-560;
+  }
+
+  .hero .main {
+    @include left-right-560;
+  }
+
+  .about .content {
+    @include left-right-560;
+  }
+
+  .theteam {
+    @include left-right-560;
+  }
+
+  .services .cards {
+    @include left-right-560;
+  }
+
+  .contact .contact-cards {
+    @include left-right-560;
+  }
+
+  .appointment .info {
+    @include left-right-560;
+  }
+
+  .appointment .container {
+    @include left-right-560;
+  }
+
+  footer p {
+    margin-left: 560px;
+  }
+
+  footer .created {
+    margin-right: 560px;
+  }
+
+  p {
+    font-size: 1.2rem;
+  }
+
+  .hero .main .block .flexbox i {
+    margin-left: 40px;
+    font-size: 1.4rem;
+  }
+
+  .hero .main .block .flexbox .button-container {
+    font-size: 1.4rem;
+  }
+
+  .services .cards .card .card-body .card-text {
+    font-size: 1rem;
+  }
+  .hero .main .block .flexbox h1 {
+    font-size: 13rem;
+  }
+
+  .hero .main .block .flexbox h1:nth-child(3) {
+    font-size: 13rem;
+  }
+
+  .hero .main .block .flexbox h1 span.bigletter {
+    font-size: 19rem;
+  }
+
+  .contact .contact-cards .contact-card .card-body .text p {
+    font-size: 1rem;
+  }
+
+  .appointment .container {
+    width: 50%;
+  }
+}
+/* Ultra Ultra Large screens (3440 and up) */
+@media only screen and (min-width: 3440px) {
+  .hero nav {
+    @include left-right-half;
+  }
+
+  .hero .main {
+    @include left-right-half;
+  }
+
+  .about .content {
+    @include left-right-half;
+  }
+
+  .theteam {
+    @include left-right-half;
+  }
+
+  .services .cards {
+    @include left-right-half;
+  }
+
+  .contact .contact-cards {
+    @include left-right-half;
+  }
+
+  .appointment .info {
+    @include left-right-half;
+  }
+
+  .appointment .container {
+    @include left-right-half;
+  }
+
+  footer p {
+    margin-left: 25%;
+  }
+
+  footer .created {
+    margin-right: 25%;
+  }
+
+  p {
+    font-size: 1.2rem;
+  }
+
+  .hero .main .block .flexbox i {
+    margin-left: 40px;
+    font-size: 1.4rem;
+  }
+
+  .hero .main .block .flexbox .button-container {
+    font-size: 1.4rem;
+  }
+
+  .services .cards .card .card-body .card-text {
+    font-size: 1rem;
+  }
+  .hero .main .block .flexbox h1 {
+    font-size: 13rem;
+  }
+
+  .hero .main .block .flexbox h1:nth-child(3) {
+    font-size: 13rem;
+  }
+
+  .hero .main .block .flexbox h1 span.bigletter {
+    font-size: 19rem;
+  }
+
+  .contact .contact-cards .contact-card .card-body .text p {
+    font-size: 1rem;
+  }
+}

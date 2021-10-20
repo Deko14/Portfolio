@@ -1,0 +1,9 @@
+Ednostavna staticna artist strana.
+Intro page vlaga pred da vleze main page.
+Content: videa, about, albumi/mixtapes/projects, contact info.
+Demo font i boi.
+Fetchiraj listra preku api povik od youtube za videata.
+Fixiraj gi kopcinjata za listanje na videa.
+Napravi ja responsive stranata.
+Stavi strelka koja kje vrakja najgore za mobile verzija.
+Dizajn+Animacii.
