@@ -1,4 +1,4 @@
-My personal and client projects
+My personal and client projects:
 
 DENTO MEDICAL LIVE: https://dento-medical.mk/
 
