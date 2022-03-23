@@ -1,6 +1,6 @@
 My personal and client projects:
 
-DENTO MEDICAL LIVE: https://dento-medical.mk/
+DENTO MEDICAL LIVE(the imgs and video need little bit of optimization): https://dento-medical.mk/
 
 FORKIFY LIVE:  https://recipe-app-js-course-final-project.netlify.app/
 
