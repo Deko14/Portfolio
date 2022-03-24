@@ -8,7 +8,10 @@ WAVPOCKET FIGMA FILE: https://www.figma.com/file/nlqhCzMWh6stKWqd630pKI/WAVpocke
 
 Technologies used in the projects are wrote on the folder name. WavPocket project is still in development since its the largest project i`ve ever started building.
 
-Currently working on: 
+Currently working on:
+
 -WavPocket project
+
 -Designing my personal portfolio(probably will build it with Next.js, Sass, ...etc)
+
 -Clearing my last exams at uni
