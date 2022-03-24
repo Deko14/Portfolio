@@ -12,6 +12,6 @@ Currently working on:
 
 -WavPocket project
 
--Designing my personal portfolio(probably will build it with Next.js, Sass, ...etc)
+-Designing my personal portfolio(probably will build it with Next.js, Sass, ...etc) https://www.figma.com/file/rzXLtwsHjZJRifk1DdWKrK/Portfolio-Project?node-id=0%3A1
 
 -Clearing my last exams at uni
